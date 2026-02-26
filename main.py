@@ -13,7 +13,10 @@ logging.basicConfig(level=logging.INFO)
 
 async def main():
     await init_db()
-    bot = Bot(token=BOT_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
+    bot = Bot(
+        token=BOT_TOKEN,
+        default=DefaultBotProperties(parse_mode=ParseMode.HTML)
+    )
     dp = Dispatcher(storage=MemoryStorage())
 
     dp.include_router(admin.router)
@@ -24,6 +27,7 @@ async def main():
     dp.include_router(errors.router)
 
     await dp.start_polling(bot)
+
 
 if __name__ == "__main__":
     asyncio.run(main())
