@@ -8,7 +8,7 @@ from aiogram.exceptions import TelegramBadRequest
 
 from filters import IsGroup, IsAdmin, IsBotAdmin
 from database import add_warning, get_warnings_count, reset_warnings, add_mute, remove_mute, get_mute_until, add_ban, increment_stat
-from utils.permissions import check_bot_admin, check_admin_hierarchy, can_act_on_user
+from utils.permissions import check_bot_admin, can_act_on_user
 from utils.time_parser import parse_time
 from utils.logger import log_action
 from keyboards.inline import moderation_panel
