@@ -1,8 +1,19 @@
 import os
 from dotenv import load_dotenv
 
+# Load environment variables from .env file if present (not needed on Railway)
 load_dotenv()
 
+# ========== DEBUG PRINTS (अस्थायी) ==========
+print("🔍 Debug: Checking environment variables...")
+env_keys = list(os.environ.keys())
+print(f"🔍 All environment variable keys: {env_keys}")
+if "BOT_TOKEN" in os.environ:
+    print("✅ BOT_TOKEN is present in environment")
+else:
+    print("❌ BOT_TOKEN is NOT in environment")
+
+# Now get the token
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 if not BOT_TOKEN:
     raise ValueError("No BOT_TOKEN found in environment variables")
