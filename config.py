@@ -1,25 +1,15 @@
 import os
 from dotenv import load_dotenv
 
-# Load environment variables from .env file if present (not needed on Railway)
 load_dotenv()
 
-# ========== DEBUG PRINTS (अस्थायी) ==========
-print("🔍 Debug: Checking environment variables...")
-env_keys = list(os.environ.keys())
-print(f"🔍 All environment variable keys: {env_keys}")
-if "BOT_TOKEN" in os.environ:
-    print("✅ BOT_TOKEN is present in environment")
-else:
-    print("❌ BOT_TOKEN is NOT in environment")
-
-# Now get the token
+# Bot Token
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 if not BOT_TOKEN:
     raise ValueError("No BOT_TOKEN found in environment variables")
 
-# Database file
-DB_PATH = "data/bot.db"  # will be created automatically
+# ✅ Database path (Railway safe)
+DB_PATH = "data/bot.db"
 
 # Log channel ID (optional)
 LOG_CHANNEL_ID = os.getenv("LOG_CHANNEL_ID")
@@ -28,19 +18,17 @@ if LOG_CHANNEL_ID:
 
 # Default settings
 DEFAULT_WARN_LIMIT = 3
-DEFAULT_FLOOD_LIMIT = 5  # messages per 5 seconds
+DEFAULT_FLOOD_LIMIT = 5
 DEFAULT_ANTI_SPAM = True
 DEFAULT_WELCOME = True
 DEFAULT_GOODBYE = True
 DEFAULT_FILTER = True
 DEFAULT_VERIFICATION = False
-DEFAULT_CAPTCHA_TIMEOUT = 60  # seconds
+DEFAULT_CAPTCHA_TIMEOUT = 60
 
-# Welcome message template
 WELCOME_MESSAGE = "Welcome {name} to {group}! Please verify yourself by clicking the button below."
 GOODBYE_MESSAGE = "Goodbye {name}!"
 
-# Time formats for timed bans/mutes
 TIME_UNITS = {
     "m": 60,
     "h": 3600,
@@ -48,7 +36,6 @@ TIME_UNITS = {
     "w": 604800,
 }
 
-# Bot owner ID (optional, for super admin commands)
 OWNER_ID = os.getenv("OWNER_ID")
 if OWNER_ID:
     OWNER_ID = int(OWNER_ID)
