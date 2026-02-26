@@ -7,7 +7,7 @@ from aiogram.fsm.storage.memory import MemoryStorage
 
 from config import BOT_TOKEN
 from database import init_db
-from handlers import admin, moderation, settings, welcome, verification, utils, errors
+from handlers import admin, moderation, welcome, verification, utils, errors
 from middlewares.rate_limit import RateLimitMiddleware  # optional
 
 logging.basicConfig(level=logging.INFO)
